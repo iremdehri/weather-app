@@ -1,5 +1,6 @@
 package com.kampplus.hava.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kampplus.hava.BuildConfig
@@ -105,7 +106,7 @@ class WeatherDetailViewModel : ViewModel() {
                 val prompt = "Bugün hava ${today?.condition} ve ${today?.temp} derece. Kullanıcıya bu hava durumuna göre esprili, kısa ve samimi bir tavsiye ver. Sadece 1-2 cümle olsun."
 
                 val request = GrokRequest(
-                    model = "llama3-8b-8192",
+                    model = "openai/gpt-oss-20b",
                     messages = listOf(
                         GrokMessage(role = "system", content = "Sen eğlenceli ve yardımsever bir hava durumu asistanısın. Yanıtların her zaman Türkçe olsun."),
                         GrokMessage(role = "user", content = prompt)
@@ -122,8 +123,16 @@ class WeatherDetailViewModel : ViewModel() {
 
                 _aiMessage.value = aiResponseText
 
+            } catch (e: retrofit2.HttpException) {
+                // API'den dönen gerçek JSON hata detayını yakalıyoruz
+                val errorBody = e.response()?.errorBody()?.string()
+                Log.e("AiError", "HTTP Hatası Kodu: ${e.code()}")
+                Log.e("AiError", "API'nin Cevabı: $errorBody")
+
+                _aiMessage.value = "Bulutlar iletişimi kesti, tavsiye veremiyorum."
             } catch (e: Exception) {
                 e.printStackTrace()
+                Log.e("AiError", "Sistem Hatası: ${e.localizedMessage}", e)
                 _aiMessage.value = "Bulutlar iletişimi kesti, tavsiye veremiyorum."
             }
         }
