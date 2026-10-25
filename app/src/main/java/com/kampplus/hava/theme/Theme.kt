@@ -1,4 +1,4 @@
-package com.kampplus.hava.ui.theme
+package com.kampplus.hava.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

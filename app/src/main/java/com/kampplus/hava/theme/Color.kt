@@ -1,4 +1,4 @@
-package com.kampplus.hava.ui.theme
+package com.kampplus.hava.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
  *
  * İsimlerdeki sayı tonu belirtir: 10 en koyu, 99 en açık.
  */
+val LightBlue = androidx.compose.ui.graphics.Color(0xFFB3E5FC) // Ferah bir gökyüzü mavisi
 internal val Teal10 = Color(0xFF002022)
 internal val Teal20 = Color(0xFF00373A)
 internal val Teal30 = Color(0xFF004F53)

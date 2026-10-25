@@ -1,4 +1,4 @@
-package com.kampplus.hava.ui.theme
+package com.kampplus.hava.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.font.FontWeight
