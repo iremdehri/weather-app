@@ -57,9 +57,9 @@ class WeatherDetailViewModel : ViewModel() {
 
                     val mappedForecasts = dailyData.mapIndexed { index, item ->
                         val dateObj = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(item.dtTxt)
-                        val dayName = SimpleDateFormat("EEEE", Locale("tr")).format(dateObj!!)
+                        val dayName = SimpleDateFormat("EEEE", Locale.forLanguageTag("tr")).format(dateObj!!)
 
-                        val fullDate = SimpleDateFormat("dd MMMM yyyy", Locale("tr")).format(dateObj)
+                        val fullDate = SimpleDateFormat("dd MMMM yyyy", Locale.forLanguageTag("tr")).format(dateObj)
 
                         WeatherForecast(
                             dayName = dayName,
@@ -87,7 +87,7 @@ class WeatherDetailViewModel : ViewModel() {
 
                     generateAiInsight(mappedForecasts)
 
-                } catch (e: IOException) {
+                } catch (_: IOException) {
                     _uiState.value = WeatherUiState.Error("İnternet bağlantınızı kontrol edip tekrar deneyin.")
                 } catch (e: HttpException) {
                     _uiState.value = WeatherUiState.Error("Sunucu hatası (${e.code()}). Lütfen daha sonra tekrar deneyin.")
