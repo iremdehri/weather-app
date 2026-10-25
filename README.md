@@ -24,6 +24,10 @@ Detaylı Tahminler: OpenWeatherMap API kullanılarak anlık hava durumu, 5 günl
 
 Yapay Zeka (AI) Asistanı: Groq API (Llama-3 modeli) entegrasyonu ile o anki sıcaklık ve hava koşullarına özel 1-2 cümlelik dinamik ve eğlenceli tavsiyeler (Robot animasyonlu şık bir UI kartı ile).
 
+
+<img width="220" height="180" alt="WhatsApp Image 2026-10-25 at 23 56 51" src="https://github.com/user-attachments/assets/e3677fab-d20d-4cf5-8203-704fd97368f4" />
+
+
 Modern UI/UX: XML kullanılmadan %100 Jetpack Compose ile yazılmış arayüz. Dikey kaydırılabilir (scrollable) ekran, yatay kaydırılabilir (LazyRow) saatlik/günlük kartlar, Material ikonlar ve gradient (degrade) arka planlar.
 
 Durum Yönetimi: Yükleniyor (Loading), Başarılı (Success) ve Hata (Error) durumlarını yöneten tam reaktif UI yapısı.
