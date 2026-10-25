@@ -123,7 +123,7 @@ class WeatherDetailViewModel : ViewModel() {
 
                 _aiMessage.value = aiResponseText
 
-            } catch (e: retrofit2.HttpException) {
+            } catch (e: HttpException) {
                 // API'den dönen gerçek JSON hata detayını yakalıyoruz
                 val errorBody = e.response()?.errorBody()?.string()
                 Log.e("AiError", "HTTP Hatası Kodu: ${e.code()}")
